@@ -16,12 +16,12 @@ const game = () => {
     //Play Match
     const playMatch = () => {
       const options = document.querySelectorAll(".options button");
-      const playerHand = document.querySelector(".player-character");
-      const computerHand = document.querySelector(".computer-character");
-      const hands = document.querySelectorAll(".choices img");
+      const playerCharacter = document.querySelector(".player-character");
+      const computerCharacter = document.querySelector(".computer-character");
+      const choices = document.querySelectorAll(".choices img");
   
-      hands.forEach(hand => {
-        hand.addEventListener("animationend", function() {
+      choices.forEach(choices => {
+        choices.addEventListener("animationend", function() {
           this.style.animation = "";
         });
       });
@@ -35,15 +35,16 @@ const game = () => {
           const computerChoice = computerOptions[computerNumber];
   
           setTimeout(() => {
-            //Here is where we call compare hands
-            compareHands(this.textContent, computerChoice);
+            //Here is where we call compareCharacters
+            compareCharacters(this.textContent, computerChoice);
             //Update Images
             playerCharacter.src = `assets/${this.textContent}.png`;
             computerCharacter.src = `assets/${computerChoice}.png`;
           }, 2000);
-          //Animation
-          playerCharacter.style.animation = "shakePlayer 0.5s ease";
-          computerCharacter.style.animation = "shakeComputer 0.5s ease";
+
+          //animation to move characters when chosen
+          playerCharacter.style.animation = "shakePlayer 0.5s";
+          computerCharacter.style.animation = "shakeComputer 0.5s";
         });
       });
     };
@@ -114,3 +115,8 @@ const game = () => {
   
   //start the game function
   game();
+
+// music for the page
+  window.onload = function() {
+    document.getElementById("assets/conker.mp3").play();
+}
