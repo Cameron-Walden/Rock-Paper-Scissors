@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper scissors</title>
   </head>
   <body>
+      <audio id ="introButtonSound" src = "assets2/coker.mp3"></audio>
     <section class="game">
       <div class="score">
         <div class="player-score">
@@ -22,14 +23,14 @@
 
       <div class="intro">
           <img src = "assets2/cog.png">
-        <button>Let's Play</button>
+        <button id ="introButton">Press the button!</button>
       </div>
 
       <div class="match fadeOut">
         <h2 class="winner">Pick your player</h2>
-        <div class="characters">
-          <img class="player-character" src="assets2/weazo.png"/>
-          <img class="computer-character" src="assets2/poo.png"/>
+        <div class="selections">
+          <img class="playerSelection" src="assets2/weazo.png"/>
+          <img class="computerSelection" src="assets2/poo.png"/>
         </div>
         <div class="options">
           <button class="rock">rock</button>

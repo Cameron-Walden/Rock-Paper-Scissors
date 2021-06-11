@@ -1,3 +1,10 @@
+function playSound() {
+    const buttonpress = document.querySelector("#introButtonSound");
+    buttonpress.play();
+introButton = document.querySelector("#introButton").addEventListener('click', playSound);
+};
+
+
 const game = () => {
     let pScore = 0;
     let cScore = 0;
@@ -16,12 +23,12 @@ const game = () => {
     //Plays a match
     function playMatch() {
         const options = document.querySelectorAll(".options button");
-        const playerChar = document.querySelector(".player-character");
-        const computerChar = document.querySelector(".computer-character");
-        const characters = document.querySelectorAll(".characters img");
+        const playerSelection = document.querySelector(".playerSelection");
+        const computerSelection = document.querySelector(".computerSelection");
+        const selections = document.querySelectorAll(".selections img");
 
-        characters.forEach(characters => {
-            characters.addEventListener("animationend", function () {
+        selections.forEach(selections => {
+            selections.addEventListener("animationend", function () {
                 this.style.animation = "";
             });
         });
@@ -35,15 +42,13 @@ const game = () => {
                 const computerChoice = computerOptions[computerNumber];
 
                 setTimeout(() => {
-                    //Here is where we call comparechar
                     compareChar(this.textContent, computerChoice);
-                    //Update Images
-                    playerChar.src = `assets/${this.textContent}.png`;
-                    computerChar.src = `assets/${computerChoice}.png`;
-                }, 2000);
-                //Animation
-                playerChar.style.animation = "shakePlayer 0.5s ease";
-                computerChar.style.animation = "shakeComputer 0.5s ease";
+                    playerSelection.src = `assets/${this.textContent}.png`;
+                    computerSelection.src = `assets/${computerChoice}.png`;
+                }, 1000);
+
+                playerSelection.style.animation = "shakePlayer 0.5s ease";
+                computerSelection.style.animation = "shakeComputer 0.5s ease";
             });
         });
     }
@@ -112,7 +117,3 @@ const game = () => {
   };
   
   game();
-
-  
-
-  
