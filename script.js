@@ -1,15 +1,13 @@
-function playSound() {
+/*function playSound() {
     const buttonpress = document.querySelector("#introButtonSound");
     buttonpress.play();
 introButton = document.querySelector("#introButton").addEventListener('click', playSound);
-};
-
+};*/
 
 const game = () => {
     let pScore = 0;
     let cScore = 0;
 
-   //Starts the Game
     const startGame = () => {
       const playBtn = document.querySelector(".intro button");
       const introScreen = document.querySelector(".intro");
@@ -20,7 +18,7 @@ const game = () => {
         match.classList.add("fadeIn");
       });
     };
-    //Plays a match
+    
     function playMatch() {
         const options = document.querySelectorAll(".options button");
         const playerSelection = document.querySelector(".playerSelection");
@@ -32,7 +30,7 @@ const game = () => {
                 this.style.animation = "";
             });
         });
-        //Computer Options
+        
         const computerOptions = ["rock", "paper", "scissors"];
 
         options.forEach(option => {
@@ -114,6 +112,5 @@ const game = () => {
   
     startGame();
     playMatch();
-  };
-  
-  game();
+};
+game();
